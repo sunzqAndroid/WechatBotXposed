@@ -5,11 +5,19 @@ import com.gh0u1l5.wechatmagician.spellbook.WechatGlobal.wxClasses
 import com.gh0u1l5.wechatmagician.spellbook.WechatGlobal.wxLazy
 import com.gh0u1l5.wechatmagician.spellbook.WechatGlobal.wxLoader
 import com.gh0u1l5.wechatmagician.spellbook.WechatGlobal.wxPackageName
+import com.gh0u1l5.wechatmagician.spellbook.WechatGlobal.wxProcessName
 import com.gh0u1l5.wechatmagician.spellbook.util.ReflectionUtil.findClassesFromPackage
+import de.robv.android.xposed.XposedBridge
 
 object Classes {
     // 这个类有一个方法可以直接发送消息
     val ChattingFooterEventImpl: Class<*> by wxLazy("ChattingFooterEventImpl") {
+        XposedBridge.log("init ChattingFooterEventImpl")
+        if (wxClasses == null) {
+            XposedBridge.log(wxProcessName + ">>>>>>" + "wxClasses==null")
+        } else {
+            XposedBridge.log(wxProcessName + ">>>>>>" + "wxClasses不为空")
+        }
         findClassesFromPackage(wxLoader!!, wxClasses!!, "$wxPackageName.ui.chatting")
                 .filterByField("android.media.ToneGenerator")
                 .filterByField("android.os.Vibrator")

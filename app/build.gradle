@@ -5,13 +5,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.blanke.wechatbotxposed"
         minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -23,15 +23,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     compileOnly 'de.robv.android.xposed:api:53'
     compileOnly 'de.robv.android.xposed:api:53:sources'
-
-    implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.3'
-    implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.3:sources'
+//        implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.4'
+    //    implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.3:sources'
+    implementation project(':wechatspellbook0_0_3')
+//    implementation project(':wechatspellbook0_0_4')
+//    implementation project(':wechatspellbook0_0_5')
+//    implementation project(':wechatspellbook0_0_6')
 }
 
 // 每次修改运行后自动让 VXP 中的模块`即时生效` ,需要将 (Debug Configurations) - Before Launch - Gradle aware Make - 修改为 :app:installDebug
