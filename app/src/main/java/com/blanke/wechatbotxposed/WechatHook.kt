@@ -31,8 +31,7 @@ class WechatHook : IXposedHookLoadPackage {
 //                }
                 XposedBridge.log("Hello Wechat!")
                 SpellBook.startup(lpparam, listOf(
-                        WechatMessageHook
-                ), listOf(
+                        WechatMessageHook,
                         SendMsgHooker
                 ))
             }

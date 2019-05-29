@@ -30,10 +30,10 @@ dependencies {
     compileOnly 'de.robv.android.xposed:api:53:sources'
 //        implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.4'
     //    implementation 'com.github.gh0u1l5:wechat-spellbook:0.0.3:sources'
-    implementation project(':wechatspellbook0_0_3')
+//    implementation project(':wechatspellbook0_0_3')
 //    implementation project(':wechatspellbook0_0_4')
 //    implementation project(':wechatspellbook0_0_5')
-//    implementation project(':wechatspellbook0_0_6')
+    implementation project(':wechatspellbook0_0_6')
 }
 
 // 每次修改运行后自动让 VXP 中的模块`即时生效` ,需要将 (Debug Configurations) - Before Launch - Gradle aware Make - 修改为 :app:installDebug
