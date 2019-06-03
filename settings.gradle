@@ -1,1 +1,1 @@
-include ':app', ':wechatspellbook0_0_3', ':wechatspellbook0_0_5', ':wechatspellbook0_0_6', ':wechatspellbook0_0_4'
+include ':app', ':wechatspellbook0_0_3', ':wechatspellbook0_0_5', ':wechatspellbook0_0_6', ':wechatspellbook0_0_4', ':wechatspellbook'

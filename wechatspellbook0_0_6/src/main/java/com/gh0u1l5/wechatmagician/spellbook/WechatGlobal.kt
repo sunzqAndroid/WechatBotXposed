@@ -6,6 +6,7 @@ import com.gh0u1l5.wechatmagician.spellbook.SpellBook.getApplicationVersion
 import com.gh0u1l5.wechatmagician.spellbook.base.Version
 import com.gh0u1l5.wechatmagician.spellbook.base.WaitChannel
 import com.gh0u1l5.wechatmagician.spellbook.util.BasicUtil.tryAsynchronously
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import net.dongliu.apk.parser.ApkFile
 import java.lang.ref.WeakReference
@@ -108,8 +109,8 @@ object WechatGlobal {
             if (initializeChannel.isDone()) {
                 return@tryAsynchronously
             }
-
             try {
+                XposedBridge.log("ApkFile start>>>>"+wxClasses)
                 wxVersion = getApplicationVersion(lpparam.packageName)
                 wxPackageName = lpparam.packageName
                 wxProcessName = lpparam.processName
@@ -118,6 +119,7 @@ object WechatGlobal {
                 ApkFile(lpparam.appInfo.sourceDir).use {
                     wxClasses = it.dexClasses.map { it.classType }
                 }
+                XposedBridge.log("ApkFile end>>>>"+wxClasses)
             } finally {
                 initializeChannel.done()
             }
