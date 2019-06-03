@@ -1,5 +1,6 @@
 package com.gh0u1l5.wechatmagician.spellbook.parser
 
+import com.gh01l5.wechatmagician.spellbook.parser.DexHeader
 import java.nio.Buffer
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -56,57 +57,57 @@ class DexParser(buffer: ByteBuffer) {
     }
 
     private fun readDexHeader() = DexHeader().apply {
-        checksum = buffer.int.toUInt()
+        checksum = buffer.int
 
         buffer.get(signature)
 
-        fileSize = buffer.int.toUInt()
-        headerSize = buffer.int.toUInt()
+        fileSize = buffer.int
+        headerSize = buffer.int
 
-        endianTag = buffer.int.toUInt()
+        endianTag = buffer.int
 
-        linkSize = buffer.int.toUInt()
-        linkOff = buffer.int.toUInt()
+        linkSize = buffer.int
+        linkOff = buffer.int
 
-        mapOff = buffer.int.toUInt()
+        mapOff = buffer.int
 
         stringIdsSize = buffer.int
-        stringIdsOff = buffer.int.toUInt()
+        stringIdsOff = buffer.int
 
         typeIdsSize = buffer.int
-        typeIdsOff = buffer.int.toUInt()
+        typeIdsOff = buffer.int
 
         protoIdsSize = buffer.int
-        protoIdsOff = buffer.int.toUInt()
+        protoIdsOff = buffer.int
 
         fieldIdsSize = buffer.int
-        fieldIdsOff = buffer.int.toUInt()
+        fieldIdsOff = buffer.int
 
         methodIdsSize = buffer.int
-        methodIdsOff = buffer.int.toUInt()
+        methodIdsOff = buffer.int
 
         classDefsSize = buffer.int
-        classDefsOff = buffer.int.toUInt()
+        classDefsOff = buffer.int
 
         dataSize = buffer.int
-        dataOff = buffer.int.toUInt()
+        dataOff = buffer.int
     }
 
-    private fun readStringOffsets(stringIdsOff: UInt, stringIdsSize: Int): IntArray {
+    private fun readStringOffsets(stringIdsOff: Int, stringIdsSize: Int): IntArray {
         (buffer as Buffer).position(stringIdsOff.toInt())
         return IntArray(stringIdsSize) {
             buffer.int
         }
     }
 
-    private fun readTypeIds(typeIdsOff: UInt, typeIdsSize: Int): IntArray {
+    private fun readTypeIds(typeIdsOff: Int, typeIdsSize: Int): IntArray {
         (buffer as Buffer).position(typeIdsOff.toInt())
         return IntArray(typeIdsSize) {
             buffer.int
         }
     }
 
-    private fun readClassIds(classDefsOff: UInt, classDefsSize: Int): Array<Int> {
+    private fun readClassIds(classDefsOff: Int, classDefsSize: Int): Array<Int> {
         (buffer as Buffer).position(classDefsOff.toInt())
         return Array(classDefsSize) {
             val classIdx = buffer.int

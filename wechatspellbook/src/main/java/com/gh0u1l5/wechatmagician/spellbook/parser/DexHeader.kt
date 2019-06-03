@@ -1,4 +1,4 @@
-package com.gh0u1l5.wechatmagician.spellbook.parser
+package com.gh01l5.wechatmagician.spellbook.parser
 
 /**
  * Dex 格式的文件头
@@ -9,49 +9,49 @@ package com.gh0u1l5.wechatmagician.spellbook.parser
 class DexHeader {
     var version: Int = 0
 
-    var checksum: UInt = 0u
+    var checksum: Int = 0
 
     var signature: ByteArray = ByteArray(kSHA1DigestLen)
 
-    var fileSize: UInt = 0u
+    var fileSize: Int = 0
 
-    var headerSize: UInt = 0u
+    var headerSize: Int = 0
 
-    var endianTag: UInt = 0u
+    var endianTag: Int = 0
 
-    var linkSize: UInt = 0u
+    var linkSize: Int = 0
 
-    var linkOff: UInt = 0u
+    var linkOff: Int = 0
 
-    var mapOff: UInt = 0u
+    var mapOff: Int = 0
 
     var stringIdsSize: Int = 0
 
-    var stringIdsOff: UInt = 0u
+    var stringIdsOff: Int = 0
 
     var typeIdsSize: Int = 0
 
-    var typeIdsOff: UInt = 0u
+    var typeIdsOff: Int = 0
 
     var protoIdsSize: Int = 0
 
-    var protoIdsOff: UInt = 0u
+    var protoIdsOff: Int = 0
 
     var fieldIdsSize: Int = 0
 
-    var fieldIdsOff: UInt = 0u
+    var fieldIdsOff: Int = 0
 
     var methodIdsSize: Int = 0
 
-    var methodIdsOff: UInt = 0u
+    var methodIdsOff: Int = 0
 
     var classDefsSize: Int = 0
 
-    var classDefsOff: UInt = 0u
+    var classDefsOff: Int = 0
 
     var dataSize: Int = 0
 
-    var dataOff: UInt = 0u
+    var dataOff: Int = 0
 
     /**
      * @suppress
