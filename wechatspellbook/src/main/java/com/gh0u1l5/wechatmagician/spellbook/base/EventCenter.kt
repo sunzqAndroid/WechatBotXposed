@@ -21,7 +21,7 @@ abstract class EventCenter: HookerProvider {
     /**
      * 不同事件所对应的观察者列表
      */
-    private val observers: MutableMap<String, Set<Any>> = ConcurrentHashMap()
+    val observers: MutableMap<String, Set<Any>> = ConcurrentHashMap()
 
     /**
      * 判断指定插件对象是否关注了某个事件
@@ -112,7 +112,7 @@ abstract class EventCenter: HookerProvider {
      * @param default 跳过函数调用之后, 仍然需要向 caller 提供一个返回值
      * @param action 对观察者进行通知的回调函数
      */
-    fun notifyForBypassFlags(event: String, param: XC_MethodHook.MethodHookParam, default: Any? = null, action: (Any) -> Boolean) {
+    inline fun notifyForBypassFlags(event: String, param: XC_MethodHook.MethodHookParam, default: Any? = null, action: (Any) -> Boolean) {
 //        val shouldBypass = notifyForResults(event, action).any()
 //        if (shouldBypass) {
 //            param.result = default
